@@ -15,8 +15,12 @@ do
 	fi
 done
 
+if [ ${STOCKAGE} == "postgres" ]; then
+	STOCKAGE="2\n\n\n\n${PGPASSWORD}\n"
+fi
+
 echo -e "${INSTANCE}\n/red/data/${INSTANCE}\n\n${STOCKAGE:-1}\n" | \
-	redbot-setup > /dev/null
+	redbot-setup > /dev/null 2>&1
 
 redbot "${INSTANCE}" \
 	--token "${TOKEN}" \

@@ -1,0 +1,7 @@
+# vi: syntax=dockerfile
+
+FROM docker.io/stelfux/red-discordbot:latest
+
+ENV STOCKAGE="postgres"
+RUN source $HOME/env/bin/activate && \
+	pip install --no-cache-dir "Red-DiscordBot[postgres]"

@@ -44,6 +44,19 @@ jobs:
           cache-from: type=local,src=/tmp/.buildx-cache
           cache-to: type=local,dest=/tmp/.buildx-cache
 
+      - name: Build and push (Postgres)
+        id: docker_build_postgres
+        uses: docker/build-push-action@v2
+        with:
+          context: ./
+          file: ./Containerfile.postgres
+          builder: ${{ steps.buildx.outputs.name }}
+          push: true
+          tags:  ${{ secrets.DOCKER_HUB_USERNAME }}/red-discordbot:postgres
+          cache-from: type=local,src=/tmp/.buildx-cache
+          cache-to: type=local,dest=/tmp/.buildx-cache
+
       - name: Image digest
         run: |
           echo "JSON: ${{ steps.docker_build_json.outputs.digest }}\n"
+          echo "Postgres: ${{ steps.docker_build_postgres.outputs.digest }}\n"
