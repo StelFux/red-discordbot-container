@@ -11,6 +11,7 @@ USER red:red
 
 RUN python -m venv $HOME/env && \
 	source $HOME/env/bin/activate && \
+	pip install -U pip setuptools wheel && \
 	pip install --no-cache-dir Red-DiscordBot
 
 ADD launch.sh /usr/local/bin

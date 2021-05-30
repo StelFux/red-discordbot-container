@@ -10,5 +10,4 @@ echo -e "${INSTANCE}\n/red/data/${INSTANCE}\n\n${STOCKAGE:-1}\n" | \
 redbot "${INSTANCE}" \
 	--token "${TOKEN}" \
 	--prefix "${PREFIX:-!}" \
-	--no-prompt \
 	$@
