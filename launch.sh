@@ -11,12 +11,12 @@ do
 	
 	if [ -f "${FILE}" ]
 	then
-		export ${VAR::-5}=$(head -n1 -z $FILE)
+		export ${VAR::-5}=$(head -n 1 $FILE)
 	fi
 done
 
 if [ ${STOCKAGE} == "postgres" ]; then
-	STOCKAGE="2\n\n\n\n${PGPASSWORD}\n"
+	STOCKAGE="2\n\n\n\n\n"
 fi
 
 echo -e "${INSTANCE}\n/red/data/${INSTANCE}\n\n${STOCKAGE:-1}\n" | \
