@@ -1,5 +1,12 @@
 FROM docker.io/library/python:3.8-alpine AS intermediate
 
+LABEL org.opencontainers.image.authors="StelFux <coles@tuta.io>" \
+	org.opencontainers.image.url="https://github.com/StelFux/red-discordbot-docker/blob/master/README.md" \
+	org.opencontainers.image.documentation="https://github.com/StelFux/red-discordbot-docker/blob/master/README.md#settings" \
+	org.opencontainers.image.source="https://github.com/StelFux/red-discordbot-docker" \
+	org.opencontainers.image.title="Red DiscordBot" \
+	org.opencontainers.image.description="A multi-function Discord bot"
+
 ENV INSTANCE="bot"
 
 RUN apk add --no-cache git openjdk11-jre-headless && \
