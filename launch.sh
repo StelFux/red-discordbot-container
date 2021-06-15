@@ -15,7 +15,7 @@ do
 	fi
 done
 
-if [ ${STOCKAGE} == "postgres" ]; then
+if [ "${STOCKAGE}" == "postgres" ]; then
 	STOCKAGE="2\n\n\n\n\n"
 fi
 

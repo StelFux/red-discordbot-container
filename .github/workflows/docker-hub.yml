@@ -41,6 +41,7 @@ jobs:
           builder: ${{ steps.buildx.outputs.name }}
           push: true
           tags:  ${{ secrets.DOCKER_HUB_USERNAME }}/red-discordbot:latest
+          target: latest
           cache-from: type=local,src=/tmp/.buildx-cache
           cache-to: type=local,dest=/tmp/.buildx-cache
 
@@ -49,8 +50,9 @@ jobs:
         uses: docker/build-push-action@v2
         with:
           context: ./
-          file: ./Containerfile.postgres
+          file: ./Containerfile
           builder: ${{ steps.buildx.outputs.name }}
+          target: postgres
           push: true
           tags:  ${{ secrets.DOCKER_HUB_USERNAME }}/red-discordbot:postgres
           cache-from: type=local,src=/tmp/.buildx-cache
