@@ -11,7 +11,7 @@ do
 	
 	if [ -f "${FILE}" ]
 	then
-		export ${VAR::-5}=$(head -n 1 $FILE)
+		export ${VAR::-5}=$(cat $FILE | tr -d '\n')
 	fi
 done
 
