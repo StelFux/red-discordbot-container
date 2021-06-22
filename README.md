@@ -28,8 +28,8 @@ podman run \
 
 podman run \
 	--env INSTANCE=NAME_OF_INSTANCE \
-	--env TOKEN_FILE=/run/secrets/red-token \
-    --env PGPASSWORD=/run/secrets/red-db-pass \
+	--secret red-token,type=env,target=TOKEN \
+    --secret red-db-pass,type=env,target=PGPASSWORD \
 	--volume NAME-OF-VOLUME:/red/data:Z \
 	--name red-bot --pod red \
 	docker.io/stelfux/red-discordbot:postgres \
@@ -47,4 +47,3 @@ For postgres:
  * `PGPASSWORD`: PostgreSQL server password
  * `PGDATABASE`: PostgreSQL database's name (*default: name*) 
 
-As an alternative to passing sensitive information via environment variables, _FILE may be appended to some of the previously listed environment variables, causing the initialization script to load the values for those variables from files present in the container. In particular, this can be used to load passwords from Docker secrets stored in /run/secrets/<secret_name> files.
