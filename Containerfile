@@ -9,7 +9,8 @@ LABEL org.opencontainers.image.authors="StelFux <coles@tuta.io>" \
 
 ENV INSTANCE="bot"
 
-RUN apk add --no-cache git openjdk11-jre-headless && \
+# libstdc++ used by serverstats
+RUN apk add --no-cache git openjdk11-jre-headless libstdc++ && \
 	apk add --no-cache --virtual .build-deps alpine-sdk libffi-dev && \
 	adduser -D -h /red -g red red && \
 	su red -c "python -m venv /red/env && \
