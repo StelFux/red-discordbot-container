@@ -1,7 +1,5 @@
 #!/bin/sh
 
-RED_CONFIG="$HOME/.config/Red-DiscordBot/config.json"
-
 source ${HOME}/env/bin/activate
 
 if [ "${STOCKAGE}" == "postgres" ]; then

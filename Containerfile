@@ -1,4 +1,4 @@
-FROM docker.io/library/python:3.8-alpine AS intermediate
+FROM docker.io/library/python:3.9-alpine AS intermediate
 
 LABEL org.opencontainers.image.authors="StelFux <coles@tuta.io>" \
 	org.opencontainers.image.url="https://github.com/StelFux/red-discordbot-docker/blob/master/README.md" \

@@ -21,7 +21,7 @@ podman secret create red-db-pass DB-PASS-FILENAME
 podman run \
 	--secret red-db-password \
 	--env POSTGRES_USER=red --env POSTGRES_DB=red \
-	--env POSTGRES_PASSWORD_FILE=/run/secrets/red-db-password \
+	--secret red-db-pass,type=env,target=POSTGRES_PASSWORD \
 	--volume red-db:/var/lib/postgresql/data:Z \
 	--name red-db --pod red --detach \
 	docker.io/library/postgres:alpine
